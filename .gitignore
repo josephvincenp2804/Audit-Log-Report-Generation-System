@@ -1,0 +1,57 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv/
+/build/
+develop-eggs/
+/dist/
+downloads/
+eggs/
+.eggs/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Flutter / Dart
+frontend/.dart_tool/
+frontend/.packages
+frontend/.flutter-plugins
+frontend/.flutter-plugins-dependencies
+frontend/.pub-cache/
+frontend/.pub/
+frontend/build/linux/
+frontend/build/windows/
+frontend/build/macos/
+frontend/build/app/
+frontend/build/ios/
+frontend/build/test_cache/
+# Note: Keep frontend/build/web/ so evaluators can run the web build directly!
+
+# IDE / Editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs and root temporary databases
+*.log
+/audit_system.db
+/test_audit.db
+
+
