@@ -10,28 +10,28 @@ An enterprise-grade, compliance-ready **Audit Log Report Generation System**. Bu
 
 ---
 
-## 📋 System Requirements & Specifications Matrix
+## System Requirements & Specifications Matrix
 
 The system fulfills 100% of the functional and architectural requirements:
 
 | Requirement Category | Core Specification | Implementation Status & Key Features |
 | :--- | :--- | :--- |
-| **1. Backend (Python)** | Develop the backend using Python (FastAPI preferred). | ✅ **FastAPI (v0.163.1)** backend running on Uvicorn with lifespan startup seeding, Pydantic v2 schemas, and CORS middleware enabled. |
-| | Create APIs to fetch and process audit log records. | ✅ Full REST suite: `GET /api/audit-logs` (filtering, pagination), `GET /api/audit-logs/{id}`, `GET /api/dashboard/summary`, `GET /api/reports/generate`, `GET /api/reports/export/pdf`, and `GET /api/reports/export/csv`. |
-| **2. Frontend (Flutter)** | Develop a simple dashboard. | ✅ Nexcent-themed dashboard with real-time stat counters, monitored table strips, audit integrity badge, activity breakdown charts, and live activity streams. |
-| | Include an option to select a date range and generate audit log reports. | ✅ Interactive date range selector (`start_date` to `end_date`), action filter (`INSERT`, `UPDATE`, `DELETE`), username query, and live preview. |
-| | Display the generated report in a structured and readable format. | ✅ Summary overview metrics banner, colored operation count badges, and structured audit table with expandable JSON diff viewer. |
-| | Provide an option to download the report. | ✅ Dual download buttons: **Download PDF** (two-pass landscape document with page numbers) and **Download CSV** (RFC-4180 spreadsheet). |
-| **3. Database Simulation** | Create a simulated database with required tables and sample data. | ✅ SQLite database (`audit_system.db`) with 5 relational tables (`users`, `departments`, `employees`, `loans`, `audit_logs`) pre-seeded with 53 historical records based on projection data. |
-| | Include sample INSERT, UPDATE, and DELETE activities. | ✅ Interactive simulation laboratory supporting live atomic **INSERT**, **UPDATE**, and **DELETE** transactions for both Employee records and Loan portfolios. |
-| **Deliverable 1** | Python backend with working APIs. | ✅ Verified live at `http://127.0.0.1:8000` with Swagger UI at `/docs`. |
-| **Deliverable 2** | Flutter dashboard with report generation option. | ✅ Verified live at `http://127.0.0.1:3000` with Web and Desktop support. |
-| **Deliverable 3** | Simulated database with sample tables and data. | ✅ Self-contained SQLite database seeded with authentic enterprise records. |
-| **Deliverable 4** | Sample generated audit log report. | ✅ Pre-compiled sample reports: [`sample_reports/sample_audit_log_report.pdf`](sample_reports/sample_audit_log_report.pdf) and [`sample_reports/sample_audit_log_report.csv`](sample_reports/sample_audit_log_report.csv). |
+| **1. Backend (Python)** | Develop the backend using Python (FastAPI preferred). | **FastAPI (v0.163.1)** backend running on Uvicorn with lifespan startup seeding, Pydantic v2 schemas, and CORS middleware enabled. |
+| | Create APIs to fetch and process audit log records. | Full REST suite: `GET /api/audit-logs` (filtering, pagination), `GET /api/audit-logs/{id}`, `GET /api/dashboard/summary`, `GET /api/reports/generate`, `GET /api/reports/export/pdf`, and `GET /api/reports/export/csv`. |
+| **2. Frontend (Flutter)** | Develop a simple dashboard. | Nexcent-themed dashboard with real-time stat counters, monitored table strips, audit integrity badge, activity breakdown charts, and live activity streams. |
+| | Include an option to select a date range and generate audit log reports. | Interactive date range selector (`start_date` to `end_date`), action filter (`INSERT`, `UPDATE`, `DELETE`), username query, and live preview. |
+| | Display the generated report in a structured and readable format. | Summary overview metrics banner, colored operation count badges, and structured audit table with expandable JSON diff viewer. |
+| | Provide an option to download the report. | Dual download buttons: **Download PDF** (two-pass landscape document with page numbers) and **Download CSV** (RFC-4180 spreadsheet). |
+| **3. Database Simulation** | Create a simulated database with required tables and sample data. | SQLite database (`audit_system.db`) with 5 relational tables (`users`, `departments`, `employees`, `loans`, `audit_logs`) pre-seeded with 53 historical records based on projection data. |
+| | Include sample INSERT, UPDATE, and DELETE activities. | Interactive simulation laboratory supporting live atomic **INSERT**, **UPDATE**, and **DELETE** transactions for both Employee records and Loan portfolios. |
+| **Deliverable 1** | Python backend with working APIs. | Verified live at `http://127.0.0.1:8000` with Swagger UI at `/docs`. |
+| **Deliverable 2** | Flutter dashboard with report generation option. | Verified live at `http://127.0.0.1:3000` with Web and Desktop support. |
+| **Deliverable 3** | Simulated database with sample tables and data. | Self-contained SQLite database seeded with authentic enterprise records. |
+| **Deliverable 4** | Sample generated audit log report. | Pre-compiled sample reports: [`sample_reports/sample_audit_log_report.pdf`](sample_reports/sample_audit_log_report.pdf) and [`sample_reports/sample_audit_log_report.csv`](sample_reports/sample_audit_log_report.csv). |
 
 ---
 
-## 📸 System Screenshots
+## System Screenshots
 
 ### 1. Executive Compliance Dashboard
 *Real-time surveillance dashboard with stat counters, monitored table cards, activity distribution charts, and streaming transaction log.*
@@ -81,7 +81,7 @@ The system fulfills 100% of the functional and architectural requirements:
 
 ---
 
-## 🏛️ System Architecture
+## System Architecture
 
 ```
 ┌────────────────────────────────────────────────────────────────────────┐
@@ -118,7 +118,7 @@ The system fulfills 100% of the functional and architectural requirements:
 
 ---
 
-## 📦 Project Structure
+## Project Structure
 
 ```
 INav1/
@@ -189,7 +189,7 @@ INav1/
 
 ---
 
-## 🚀 Quick Start Guide
+## Quick Start Guide
 
 ### Prerequisites
 - **Python**: 3.11 or higher
@@ -246,7 +246,7 @@ Open your browser at **`http://127.0.0.1:3000`**.
 
 ---
 
-## 🧪 Testing
+## Testing
 
 ### Backend Unit & Integration Tests
 The backend includes an automated test suite verifying all endpoints, database constraints, and PDF generation:
@@ -264,7 +264,7 @@ flutter analyze
 
 ---
 
-## 📊 Sample Reports Included in Repository
+## Sample Reports Included in Repository
 
 Pre-compiled sample audit reports are located directly in the [`sample_reports/`](sample_reports/) folder:
 
