@@ -6,15 +6,15 @@
 [![SQLite](https://img.shields.io/badge/SQLite-3-003B57?style=for-the-badge&logo=sqlite&logoColor=white)](https://www.sqlite.org)
 [![UI Theme](https://img.shields.io/badge/UI_Design-Nexcent_Green-4CAF4F?style=for-the-badge)](https://flutter.dev)
 
-An enterprise-grade, compliance-ready **Audit Log Report Generation System** developed for technical evaluation. Built with a **Python FastAPI** backend, **SQLAlchemy 2.0** ORM, transactional **SQLite** database, **ReportLab** two-pass landscape PDF generation engine, and a responsive **Flutter Material 3** web/desktop frontend implementing the modern **Nexcent** SaaS design system.
+An enterprise-grade, compliance-ready **Audit Log Report Generation System**. Built with a **Python FastAPI** backend, **SQLAlchemy 2.0** ORM, transactional **SQLite** database, **ReportLab** two-pass landscape PDF generation engine, and a responsive **Flutter Material 3** web/desktop frontend implementing the modern **Nexcent** SaaS design system.
 
 ---
 
-## 📋 Mentor Requirements vs. Implementation Matrix
+## 📋 System Requirements & Specifications Matrix
 
-The system fulfills 100% of the functional and architectural requirements assigned by the evaluation mentor:
+The system fulfills 100% of the functional and architectural requirements:
 
-| Requirement Category | Mentor Specification | Implementation Status & Key Features |
+| Requirement Category | Core Specification | Implementation Status & Key Features |
 | :--- | :--- | :--- |
 | **1. Backend (Python)** | Develop the backend using Python (FastAPI preferred). | ✅ **FastAPI (v0.163.1)** backend running on Uvicorn with lifespan startup seeding, Pydantic v2 schemas, and CORS middleware enabled. |
 | | Create APIs to fetch and process audit log records. | ✅ Full REST suite: `GET /api/audit-logs` (filtering, pagination), `GET /api/audit-logs/{id}`, `GET /api/dashboard/summary`, `GET /api/reports/generate`, `GET /api/reports/export/pdf`, and `GET /api/reports/export/csv`. |
@@ -22,7 +22,7 @@ The system fulfills 100% of the functional and architectural requirements assign
 | | Include an option to select a date range and generate audit log reports. | ✅ Interactive date range selector (`start_date` to `end_date`), action filter (`INSERT`, `UPDATE`, `DELETE`), username query, and live preview. |
 | | Display the generated report in a structured and readable format. | ✅ Summary overview metrics banner, colored operation count badges, and structured audit table with expandable JSON diff viewer. |
 | | Provide an option to download the report. | ✅ Dual download buttons: **Download PDF** (two-pass landscape document with page numbers) and **Download CSV** (RFC-4180 spreadsheet). |
-| **3. Database Simulation** | Create a simulated database with required tables and sample data. | ✅ SQLite database (`audit_system.db`) with 5 relational tables (`users`, `departments`, `employees`, `loans`, `audit_logs`) pre-seeded with 53 historical records based on SI Capital projection data. |
+| **3. Database Simulation** | Create a simulated database with required tables and sample data. | ✅ SQLite database (`audit_system.db`) with 5 relational tables (`users`, `departments`, `employees`, `loans`, `audit_logs`) pre-seeded with 53 historical records based on projection data. |
 | | Include sample INSERT, UPDATE, and DELETE activities. | ✅ Interactive simulation laboratory supporting live atomic **INSERT**, **UPDATE**, and **DELETE** transactions for both Employee records and Loan portfolios. |
 | **Deliverable 1** | Python backend with working APIs. | ✅ Verified live at `http://127.0.0.1:8000` with Swagger UI at `/docs`. |
 | **Deliverable 2** | Flutter dashboard with report generation option. | ✅ Verified live at `http://127.0.0.1:3000` with Web and Desktop support. |
@@ -45,8 +45,8 @@ The system fulfills 100% of the functional and architectural requirements assign
 
 ---
 
-### 3. SI Capital Loan Portfolio Management
-*Dedicated loan management system implementing the 5 SI Capital products (Daily, Weekly, Personal, Vehicle, Gold) with live disbursal, collection, and cancellation audit tracking.*
+### 3. Loan Portfolio Management
+*Dedicated loan management system implementing 5 loan products (Daily, Weekly, Personal, Vehicle, Gold) with live disbursal, collection, and cancellation audit tracking.*
 ![Loan Portfolio](docs/screenshots/03_loan_portfolio.png)
 
 ---
@@ -66,6 +66,18 @@ The system fulfills 100% of the functional and architectural requirements assign
 ### 6. Interactive OpenAPI / Swagger Documentation
 *Auto-generated interactive API documentation with schemas, parameter definitions, and in-browser testing.*
 ![Swagger API Docs](docs/screenshots/06_api_docs_swagger.png)
+
+---
+
+### 7. Sample Generated Audit Log PDF Report
+*Regulatory two-pass landscape PDF report with official header, compliance statement, scope filters, summary statistics cards, alternating row shading, and dynamic page numbering.*
+![Generated PDF Report](docs/screenshots/07_sample_pdf_report.jpg)
+
+---
+
+### 8. Sample Generated CSV Report in Microsoft Excel
+*RFC-4180 compliant CSV export open in Microsoft Excel, containing structured audit event data with properly escaped JSON previous/new value payloads.*
+![Generated CSV in Excel](docs/screenshots/08_sample_csv_excel.jpg)
 
 ---
 
@@ -110,7 +122,7 @@ The system fulfills 100% of the functional and architectural requirements assign
 
 ```
 INav1/
-├── README.md                           # Comprehensive documentation & evaluation guide
+├── README.md                           # Comprehensive documentation & system guide
 ├── sample_reports/                     # Deliverable #4: Pre-generated sample audit reports
 │   ├── sample_audit_log_report.pdf     # Regulatory 2-pass landscape PDF
 │   └── sample_audit_log_report.csv     # Full audit ledger CSV export
@@ -121,7 +133,9 @@ INav1/
 │       ├── 03_loan_portfolio.png
 │       ├── 04_report_generation.png
 │       ├── 05_db_simulation.png
-│       └── 06_api_docs_swagger.png
+│       ├── 06_api_docs_swagger.png
+│       ├── 07_sample_pdf_report.jpg
+│       └── 08_sample_csv_excel.jpg
 ├── backend/                            # Deliverable #1: Python FastAPI backend
 │   ├── audit_system.db                 # Deliverable #3: Seeded SQLite database
 │   ├── requirements.txt                # Python dependencies
@@ -131,7 +145,7 @@ INav1/
 │   │   ├── models.py                   # SQLAlchemy models (User, Dept, Emp, Loan, AuditLog)
 │   │   ├── schemas.py                  # Pydantic v2 validation models
 │   │   ├── crud.py                     # Database operations & audit queries
-│   │   ├── seed.py                     # 53 SI Capital projection records seed
+│   │   ├── seed.py                     # Seed data with historical audit events
 │   │   ├── routers/
 │   │   │   ├── dashboard.py            # Aggregated analytics endpoints
 │   │   │   ├── audit_logs.py           # Audit log querying & details
@@ -146,7 +160,7 @@ INav1/
 └── frontend/                           # Deliverable #2: Flutter frontend application
     ├── pubspec.yaml                    # Dart & Flutter dependencies
     ├── lib/
-    │   ├── main.py                     # Main shell, NavigationRail & health monitor
+    │   ├── main.dart                   # Main shell, NavigationRail & health monitor
     │   ├── theme/
     │   │   └── app_theme.dart          # Nexcent color palette & typography
     │   ├── models/
@@ -260,11 +274,3 @@ Pre-compiled sample audit reports are located directly in the [`sample_reports/`
 2. **[`sample_reports/sample_audit_log_report.csv`](sample_reports/sample_audit_log_report.csv)**:
    - Formatted in accordance with RFC-4180.
    - Contains all audit fields with escaped JSON payloads for seamless import into Microsoft Excel, Google Sheets, or PowerBI.
-
----
-
-## 🛡️ License & Acknowledgements
-
-Developed for technical evaluation by **John Paul Rapheal** (iNav Technologies Pvt Ltd).
-Domain financial projection models sourced from **SI Capital & Financial Services Ltd**.
-Theme and visual aesthetics inspired by the **Nexcent** SaaS design system.
